@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ MyFuture: Peta Profesi Impian ke Program Studi</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Set Tailwind config for Inter font and custom PASTEL colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    // Definisikan warna utama dengan palet PASTEL BARU yang lebih soft dan bervariasi
+                    colors: {
+                        // 1. Pendidikan (Soft Lavender)
+                        'pendidikan-main': '#c4b5fd', // violet-300
+                        'pendidikan-light': '#f5f3ff', // violet-100
+                        // 2. Kesehatan (Soft Mint)
+                        'health-main': '#6ee7b7', // emerald-300
+                        'health-light': '#f0fdf4', // emerald-50
+                        // 3. Sains Murni (Soft Sky Blue)
+                        'sains-main': '#93c5fd', // blue-300
+                        'sains-light': '#eff6ff', // blue-50
+                        // 4. Teknologi (Soft Peach)
+                        'teknologi-main': '#fcd34d', // amber-300
+                        'teknologi-light': '#fffbeb', // amber-50
+                        // 5. Bisnis (Soft Beige)
+                        'bisnis-main': '#fde047', // yellow-300
+                        'bisnis-light': '#fefce8', // yellow-50
+                        // 6. Teknik (Soft Slate)
+                        'teknik-main': '#9ca3af', // gray-400
+                        'teknik-light': '#f9fafb', // gray-50
+                        // 7. Hukum (Soft Lilac)
+                        'hukum-main': '#f0abfc', // fuchsia-300
+                        'hukum-light': '#fdf4ff', // fuchsia-50
+                        // 8. Transportasi (Soft Aqua)
+                        'transport-main': '#67e8f9', // cyan-300
+                        'transport-light': '#ecfeff', // cyan-50
+                        // 9. Pariwisata (Soft Lemon)
+                        'tourism-main': '#bef264', // lime-300
+                        'tourism-light': '#f7fee7', // lime-50
+                        // 10. Kreatif (Soft Coral)
+                        'creative-main': '#fca5a5', // red-300
+                        'creative-light': '#fee2e2', // red-100
+                        // 11. Pertanian (Soft Moss Green)
+                        'pertanian-main': '#86efac', // green-300
+                        'pertanian-light': '#f0fdf4', // green-50
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Import Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+
+        /* --- STYLING UNTUK MODAL (POPUP) --- */
+        
+        /* Variabel CSS BARU untuk warna-warna soft pastel */
+        :root {
+            /* 1. Pendidikan */
+            --pendidikan-main: #c4b5fd;
+            --pendidikan-light: #f5f3ff;
+            /* 2. Kesehatan */
+            --health-main: #6ee7b7;
+            --health-light: #f0fdf4;
+            /* 3. Sains */
+            --sains-main: #93c5fd;
+            --sains-light: #eff6ff;
+            /* 4. Teknologi */
+            --teknologi-main: #fcd34d;
+            --teknologi-light: #fffbeb;
+            /* 5. Bisnis */
+            --bisnis-main: #fde047;
+            --bisnis-light: #fefce8;
+            /* 6. Teknik */
+            --teknik-main: #9ca3af;
+            --teknik-light: #f9fafb;
+            /* 7. Hukum */
+            --hukum-main: #f0abfc;
+            --hukum-light: #fdf4ff;
+            /* 8. Transportasi */
+            --transport-main: #67e8f9;
+            --transport-light: #ecfeff;
+            /* 9. Pariwisata */
+            --tourism-main: #bef264;
+            --tourism-light: #f7fee7;
+            /* 10. Kreatif */
+            --creative-main: #fca5a5;
+            --creative-light: #fee2e2;
+            /* 11. Pertanian */
+            --pertanian-main: #86efac;
+            --pertanian-light: #f0fdf4;
+        }
+
+        /* Kelas Dinamis untuk Modal Theming */
+
+        /* 1. PENDIDIKAN (Soft Lavender) */
+        .pendidikan-path #modal-header { background-color: var(--pendidikan-main); }
+        .pendidikan-path .card-title { color: var(--pendidikan-main); border-bottom-color: var(--pendidikan-main); }
+        .pendidikan-path .list-item { border-left-color: var(--pendidikan-main); background-color: var(--pendidikan-light); }
+        /* 2. KESEHATAN (Soft Mint) */
+        .health-path #modal-header { background-color: var(--health-main); }
+        .health-path .card-title { color: var(--health-main); border-bottom-color: var(--health-main); }
+        .health-path .list-item { border-left-color: var(--health-main); background-color: var(--health-light); }
+        /* 3. SAINS MURNI (Soft Sky Blue) */
+        .sains-path #modal-header { background-color: var(--sains-main); }
+        .sains-path .card-title { color: var(--sains-main); border-bottom-color: var(--sains-main); }
+        .sains-path .list-item { border-left-color: var(--sains-main); background-color: var(--sains-light); }
+        /* 4. TEKNOLOGI (Soft Peach) */
+        .teknologi-path #modal-header { background-color: var(--teknologi-main); }
+        .teknologi-path .card-title { color: var(--teknologi-main); border-bottom-color: var(--teknologi-main); }
+        .teknologi-path .list-item { border-left-color: var(--teknologi-main); background-color: var(--teknologi-light); }
+        /* 5. BISNIS (Soft Beige) */
+        .bisnis-path #modal-header { background-color: var(--bisnis-main); }
+        .bisnis-path .card-title { color: var(--bisnis-main); border-bottom-color: var(--bisnis-main); }
+        .bisnis-path .list-item { border-left-color: var(--bisnis-main); background-color: var(--bisnis-light); }
+        /* 6. TEKNIK (Soft Slate) */
+        .teknik-path #modal-header { background-color: var(--teknik-main); }
+        .teknik-path .card-title { color: var(--teknik-main); border-bottom-color: var(--teknik-main); }
+        .teknik-path .list-item { border-left-color: var(--teknik-main); background-color: var(--teknik-light); }
+        /* 7. HUKUM (Soft Lilac) */
+        .hukum-path #modal-header { background-color: var(--hukum-main); }
+        .hukum-path .card-title { color: var(--hukum-main); border-bottom-color: var(--hukum-main); }
+        .hukum-path .list-item { border-left-color: var(--hukum-main); background-color: var(--hukum-light); }
+        /* 8. TRANSPORTASI (Soft Aqua) */
+        .transport-path #modal-header { background-color: var(--transport-main); }
+        .transport-path .card-title { color: var(--transport-main); border-bottom-color: var(--transport-main); }
+        .transport-path .list-item { border-left-color: var(--transport-main); background-color: var(--transport-light); }
+        /* 9. PARIWISATA (Soft Lemon) */
+        .tourism-path #modal-header { background-color: var(--tourism-main); }
+        .tourism-path .card-title { color: var(--tourism-main); border-bottom-color: var(--tourism-main); }
+        .tourism-path .list-item { border-left-color: var(--tourism-main); background-color: var(--tourism-light); }
+        /* 10. KREATIF (Soft Coral) */
+        .creative-path #modal-header { background-color: var(--creative-main); }
+        .creative-path .card-title { color: var(--creative-main); border-bottom-color: var(--creative-main); }
+        .creative-path .list-item { border-left-color: var(--creative-main); background-color: var(--creative-light); }
+        /* 11. PERTANIAN (Soft Moss Green) */
+        .pertanian-path #modal-header { background-color: var(--pertanian-main); }
+        .pertanian-path .card-title { color: var(--pertanian-main); border-bottom-color: var(--pertanian-main); }
+        .pertanian-path .list-item { border-left-color: var(--pertanian-main); background-color: var(--pertanian-light); }
+
+
+        /* --- ANIMASI --- */
+        /* Animasi untuk emoji "bergerak" */
+        @keyframes sparkle-animation {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        .sparkle {
+            display: inline-block;
+            animation: sparkle-animation 1.5s infinite ease-in-out;
+        }
+        
+        /* Animasi "Bernapas" untuk Judul */
+        @keyframes breathing-animation {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .breathing-header {
+            animation: breathing-animation 4s ease-in-out infinite;
+        }
+
+        /* Animasi "Latar Belakang Bergerak" */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            /* Tambah 'to-blue-50' untuk gradien yang lebih kaya */
+            background-size: 200% 200%;
+            animation: gradient-animation 10s ease infinite;
+        }
+        /* --- AKHIR ANIMASI --- */
+
+    </style>
+</head>
+<!-- Latar belakang gradien animasi BARU -->
+<body class="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 font-sans p-4 sm:p-8 md:p-10 antialiased">
+
+    <!-- Kontainer Utama -->
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10">
+        
+        <!-- Header Aplikasi -->
+        <header class="text-center mb-6">
+            <!-- Judul "Bernapas" BARU -->
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-500 tracking-tight mb-2 breathing-header">
+                <span class="sparkle">✨</span> MY FUTURE <span class="sparkle">✨</span>
+            </h1>
+            <p class="text-lg text-gray-600 font-medium">
+                Peta Profesi Impian ke Program Studi
+            </p>
+        </header>
+
+        <!-- Konteks Keputusan Menteri -->
+        <div class="mb-8 p-4 bg-violet-50 border-l-4 border-violet-400 rounded-r-lg">
+            <h2 class="font-semibold text-xs text-violet-700 tracking-wider uppercase">
+                📜 Berdasarkan Keputusan Menteri:
+            </h2>
+            <blockquote class="mt-1 text-xs text-violet-600 italic leading-snug">
+BERDASARKAN MENTERI PENDIDIKAN, KEBUDAYAAN, RISET, DAN TEKNOLOGI REPUBLIK INDONESIA
+NOMOR 345/M/2022
+TENTANG MATA PELAJARAN PENDUKUNG PROGRAM STUDI DALAM SELEKSI NASIONAL BERDASARKAN PRESTASI
+MENTERI PENDIDIKAN,KEBUDAYAAN,RISET,DAN TEKNOLOGI REPUBLIK INDONESIA
+            </blockquote>
+        </div>
+
+        <!-- PERUBAHAN UTAMA: Kontrol Input Dropdown (berdasarkan PROFESI BARU) -->
+        <div class="input-control bg-white p-6 rounded-xl shadow-xl border-t-4 border-violet-300">
+            <label for="profession-path" class="block mb-3 font-bold text-lg text-violet-800">
+                Pilih Profesi Impian Anda:
+            </label>
+            <select id="profession-path" onchange="displayMap()" 
+                    class="w-full p-3 border border-violet-300 rounded-lg shadow-inner 
+                           focus:ring-2 focus:ring-pink-300 focus:border-pink-300 
+                           transition duration-150 ease-in-out text-base bg-white cursor-pointer hover:border-violet-400">
+                <option value="none">..Pilih Profesi Impian..</option>
+                
+                <!-- 1. PENDIDIKAN (Soft Lavender) -->
+                <optgroup label="--- 🎓 PENDIDIKAN ---" class="text-purple-500 font-bold">
+                    <option value="Guru">Guru</option>
+                    <option value="Dosen">Dosen</option>
+                    <option value="Kepala Sekolah">Kepala Sekolah</option>
+                    <option value="Konselor Sekolah">Konselor Sekolah</option>
+                </optgroup>
+                
+                <!-- 2. KESEHATAN (Soft Mint) -->
+                <optgroup label="--- 💚 KESEHATAN ---" class="text-emerald-500 font-bold">
+                    <option value="Dokter">Dokter</option>
+                    <option value="Perawat">Perawat</option>
+                    <option value="Bidan">Bidan</option>
+                    <option value="Apoteker">Apoteker</option>
+                    <option value="Dokter Gigi">Dokter Gigi</option>
+                    <option value="Fisioterapis">Fisioterapis</option>
+                    <option value="Ahli Gizi (Dietisien)">Ahli Gizi (Dietisien)</option>
+                    <option value="Psikolog">Psikolog</option>
+                    <option value="Dokter Hewan">Dokter Hewan</option>
+                </optgroup>
+
+                <!-- 3. SAINS MURNI (Soft Sky Blue) -->
+                <optgroup label="--- 🔬 SAINS MURNI ---" class="text-blue-500 font-bold">
+                    <option value="Fisikawan">Fisikawan</option>
+                    <option value="Ahli Biologi">Ahli Biologi</option>
+                    <option value="Kimiawan">Kimiawan</option>
+                </optgroup>
+
+                <!-- 4. TEKNOLOGI (Soft Peach) -->
+                <optgroup label="--- 💻 TEKNOLOGI DAN IT ---" class="text-amber-500 font-bold">
+                    <option value="Programmer">Programmer</option>
+                    <option value="Data Analyst">Data Analyst</option>
+                    <option value="UI/UX Designer">UI/UX Designer</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Cybersecurity Specialist">Cybersecurity Specialist</option>
+                    <option value="Game Developer">Game Developer</option>
+                </optgroup>
+
+                <!-- 5. BISNIS (Soft Beige) -->
+                <optgroup label="--- 📈 BISNIS DAN KEUANGAN ---" class="text-yellow-500 font-bold">
+                    <option value="Akuntan">Akuntan</option>
+                    <option value="Manajer Pemasaran">Manajer Pemasaran</option>
+                    <option value="Pengusaha">Pengusaha</option>
+                    <option value="Konsultan Hukum Bisnis">Konsultan Hukum Bisnis</option>
+                    <option value="Analis Finansial">Analis Finansial</option>
+                    <option value="Analis Riset Pasar">Analis Riset Pasar</option>
+                </optgroup>
+
+                <!-- 6. TEKNIK (Soft Slate) -->
+                <optgroup label="--- 🛠️ TEKNIK ---" class="text-gray-500 font-bold">
+                    <option value="Insinyur Sipil">Insinyur Sipil</option>
+                    <option value="Insinyur Mesin">Insinyur Mesin</option>
+                    <option value="Arsitek">Arsitek</option>
+                    <option value="Insinyur Elektro">Insinyur Elektro</option>
+                    <option value="Insinyur Kimia">Insinyur Kimia</option>
+                    <option value="Insinyur Industri">Insinyur Industri</option>
+                    <option value="Insinyur Perminyakan">Insinyur Perminyakan</option>
+                    <option value="Insinyur Lingkungan">Insinyur Lingkungan</option>
+                </optgroup>
+
+                <!-- 7. HUKUM (Soft Lilac) -->
+                <optgroup label="--- ⚖️ HUKUM DAN PEMERINTAHAN ---" class="text-fuchsia-500 font-bold">
+                    <option value="Pengacara">Pengacara</option>
+                    <option value="Hakim">Hakim</option>
+                    <option value="Jaksa">Jaksa</option>
+                    <option value="Notaris">Notaris</option>
+                    <option value="PNS">PNS</option>
+                    <option value="Polisi">Polisi</option>
+                    <option value="Tentara">Tentara</option>
+                    <option value="Diplomat">Diplomat</option>
+                    <option value="Sosiolog">Sosiolog</option> 
+                </optgroup>
+
+                <!-- 8. TRANSPORTASI (Soft Aqua) -->
+                <optgroup label="--- ✈️ TRANSPORTASI & LAYANAN ---" class="text-cyan-500 font-bold">
+                    <option value="Pilot">Pilot</option>
+                    <option value="Pramugari">Pramugari</option> 
+                </optgroup>
+
+                <!-- 9. PARIWISATA (Soft Lemon) -->
+                <optgroup label="--- 🏨 PARIWISATA DAN PERHOTELAN ---" class="text-lime-500 font-bold">
+                    <option value="Pemandu Wisata">Pemandu Wisata</option>
+                    <option value="Chef">Chef</option>
+                    <option value="Hotel Manager">Hotel Manager</option>
+                    <option value="Event Organizer">Event Organizer</option>
+                </optgroup>
+
+                <!-- 10. KREATIF (Soft Coral) -->
+                <optgroup label="--- 🎨 SENI DAN MEDIA ---" class="text-red-500 font-bold">
+                    <option value="Desainer Grafis">Desainer Grafis</option>
+                    <option value="Jurnalis">Jurnalis</option>
+                    <option value="Penulis">Penulis</option>
+                    <option value="Fotografer">Fotografer</option>
+                    <option value="Video Editor">Video Editor</option>
+                    <option value="Public Relations Specialist">Public Relations Specialist</option>
+                    <option value="Animator">Animator</option>
+                    <option value="Musisi">Musisi</option>
+                    <option value="Penerjemah">Penerjemah</option>
+                </optgroup>
+
+                <!-- 11. PERTANIAN (Soft Moss Green) -->
+                <optgroup label="--- 🌿 PERTANIAN DAN LINGKUNGAN ---" class="text-green-500 font-bold">
+                    <option value="Peneliti Pertanian">Peneliti Pertanian</option>
+                    <option value="Peneliti Lingkungan">Peneliti Lingkungan</option>
+                    <option value="Ahli Kehutanan">Ahli Kehutanan</option>
+                </optgroup>
+
+            </select>
+        </div>
+
+    </div>
+
+    <!-- MODAL (POPUP) STRUKTUR -->
+    <div id="career-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <!-- Backdrop -->
+        <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+        <!-- Panel Modal (Menggunakan max-w-5xl agar cukup di mobile/portrait) -->
+        <div id="modal-panel" 
+             class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-full md:h-auto md:max-h-[90vh] overflow-hidden transform transition-all duration-300 ease-in-out scale-95 opacity-0"
+             onclick="event.stopPropagation()">
+            
+            <!-- Header Modal (Berubah Warna Sesuai Rumpun) -->
+            <div id="modal-header" class="p-5 flex justify-between items-center transition-colors duration-300">
+                <h2 id="modal-title" class="text-2xl font-bold text-white">
+                    <!-- Judul akan diisi oleh JS -->
+                </h2>
+                <button id="modal-close-btn" class="text-white opacity-90 hover:opacity-100 transition-opacity transform hover:rotate-90">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Area Konten Modal (Bisa di-scroll di portrait) -->
+            <div id="modal-content-area" class="p-6 bg-gray-50 overflow-y-auto max-h-[80vh] md:max-h-full">
+                <!-- Konten akan diisi oleh JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // PERUBAHAN UTAMA: Database sekarang berdasarkan PROFESI
+        const professionDatabase = {
+            // === 1. PENDIDIKAN (Soft Lavender) ===
+            'Guru': { 
+                title: 'Guru', 
+                studies: ['Pendidikan (Spesialisasi Mapel)', 'Psikologi Pendidikan', 'Sesuai Bidang Ilmu (cth: Sastra, MIPA)'], 
+                subjects: ['Psikologi', 'Sosiologi', 'Mapel Spesialisasi (cth: Matematika, Biologi)', 'Bahasa Indonesia'], 
+                skills: ['Public Speaking', 'Empati & Kesabaran', 'Manajemen Kelas', 'Merancang Kurikulum'], 
+                activities: ['OSIS/BEM', 'Klub Debat', 'Organisasi Kesiswaan', 'Mengajar (Les Privat)'],
+                pathClass: 'pendidikan-path' 
+            },
+            'Dosen': { 
+                title: 'Dosen (Peneliti)', 
+                studies: ['Program Magister/Doktor (S2/S3) Linear', 'Sesuai Bidang Ilmu (cth: Teknik, Hukum, Sastra)'], 
+                subjects: ['Subjek Spesialisasi Mendalam', 'Metodologi Penelitian', 'Filsafat Ilmu', 'Statistika'], 
+                skills: ['Riset Mendalam', 'Analisis Kritis', 'Public Speaking (Mengajar)', 'Menulis Ilmiah'], 
+                activities: ['Klub Riset (KIR)', 'Asisten Laboratorium', 'Jurnalistik Kampus', 'Klub Debat'],
+                pathClass: 'pendidikan-path' 
+            },
+            'Kepala Sekolah': { 
+                title: 'Kepala Sekolah (Manajer Pendidikan)', 
+                studies: ['Manajemen Pendidikan (S2)', 'Pendidikan (S1/S2)'], 
+                subjects: ['Manajemen SDM', 'Kebijakan Publik', 'Psikologi', 'Ekonomi (Anggaran)'], 
+                skills: ['Kepemimpinan', 'Manajemen Organisasi', 'Pengambilan Keputusan', 'Komunikasi Publik'], 
+                activities: ['Ketua OSIS/BEM', 'Manajemen Event', 'Organisasi Kepemimpinan', 'Pramuka'],
+                pathClass: 'pendidikan-path' 
+            },
+            'Konselor Sekolah': { 
+                title: 'Konselor Sekolah', 
+                studies: ['Bimbingan dan Konseling', 'Psikologi Pendidikan'], 
+                subjects: ['Psikologi', 'Sosiologi', 'Pendidikan Kewarganegaraan'], 
+                skills: ['Empati & Mendengar Aktif', 'Konseling', 'Problem Solving', 'Manajemen Kasus'], 
+                activities: ['OSIS (Seksi Mediasi/Sosial)', 'PMR (Dukungan Psikologis)', 'Relawan Sosial'],
+                pathClass: 'pendidikan-path' 
+            },
+
+            // === 2. KESEHATAN (Soft Mint) ===
+            'Dokter': { 
+                title: 'Dokter', 
+                studies: ['Kedokteran/Pendidikan Dokter'], 
+                subjects: ['Biologi Lanjut', 'Kimia Lanjut', 'Fisika Dasar', 'Etika/Sosiologi'], 
+                skills: ['Ketelitian Diagnosa', 'Empati', 'Ketahanan Mental', 'Kerja Tim'], 
+                activities: ['PMR (Palang Merah Remaja)', 'Klub Biologi/Sains (KIR)', 'Relawan Kesehatan', 'Riset Ilmiah'],
+                pathClass: 'health-path' 
+            },
+            'Perawat': {
+                title: 'Perawat',
+                studies: ['Keperawatan'],
+                subjects: ['Biologi', 'Kimia', 'Psikologi', 'Pendidikan Jasmani'],
+                skills: ['Kepedulian (Empati)', 'Keterampilan Prosedural', 'Komunikasi Interpersonal', 'Kuat di bawah tekanan'],
+                activities: ['PMR', 'Relawan Panti Jompo/RS', 'Klub Kesehatan', 'Pramuka (Unit Kesehatan)'],
+                pathClass: 'health-path'
+            },
+            'Bidan': {
+                title: 'Bidan',
+                studies: ['Kebidanan'],
+                subjects: ['Biologi', 'Kimia', 'Psikologi', 'Kesehatan Reproduksi'],
+                skills: ['Kepedulian (Empati)', 'Ketelitian', 'Keterampilan Prosedural', 'Ketenangan'],
+                activities: ['PMR', 'Relawan Posyandu', 'Klub Kesehatan Ibu & Anak', 'Pramuka'],
+                pathClass: 'health-path'
+            },
+            'Apoteker': { 
+                title: 'Apoteker', 
+                studies: ['Farmasi', 'Farmasi (Kesehatan)'], 
+                subjects: ['Kimia Lanjut', 'Biologi', 'Fisika', 'Matematika'], 
+                skills: ['Ketelitian Dosis', 'Riset Bahan', 'Kesehatan', 'Penguasaan Regulasi'], 
+                activities: ['PMR', 'Klub Kimia/Sains (KIR)', 'Olimpiade Kimia', 'Asisten Laboratorium'],
+                pathClass: 'health-path' 
+            },
+            'Dokter Gigi': {
+                title: 'Dokter Gigi',
+                studies: ['Kedokteran Gigi'],
+                subjects: ['Biologi Lanjut', 'Kimia Lanjut', 'Seni Rupa (Estetika)', 'Fisika'],
+                skills: ['Presisi Manual (Tangan)', 'Empati', 'Keterampilan Komunikasi', 'Ketelitian'],
+                activities: ['PMR', 'Klub Biologi', 'Kegiatan Seni (Motorik Halus)', 'Relawan Kesehatan'],
+                pathClass: 'health-path'
+            },
+            'Fisioterapis': {
+                title: 'Fisioterapis',
+                studies: ['Fisioterapi'],
+                subjects: ['Fisika (Gerak)', 'Biologi (Anatomi)', 'Pendidikan Jasmani', 'Psikologi Dasar'],
+                skills: ['Keterampilan Motorik', 'Kesabaran', 'Motivasi Pasien', 'Diagnosis Gerak'],
+                activities: ['Klub Olahraga (Fisik)', 'PMR', 'Klub Anatomi/Biologi', 'Pramuka'],
+                pathClass: 'health-path'
+            },
+            'Ahli Gizi (Dietisien)': {
+                title: 'Ahli Gizi (Dietisien)',
+                studies: ['Dietisien/Ilmu Gizi', 'Nutrisi dan Teknologi Kuliner'],
+                subjects: ['Biologi', 'Kimia', 'Ekonomi (Manajemen Menu)', 'Pendidikan Jasmani'],
+                skills: ['Konseling', 'Penyusunan Menu', 'Riset Kandungan Gizi', 'Promosi Kesehatan'],
+                activities: ['Klub Memasak/Tata Boga', 'Klub Biologi/Kimia', 'Relawan Gizi', 'PMR'],
+                pathClass: 'health-path'
+            },
+            'Psikolog': {
+                title: 'Psikolog',
+                studies: ['Psikologi', 'Psikologi Klinis (S2 Profesi)', 'Bimbingan Konseling'],
+                subjects: ['Psikologi', 'Biologi (Sistem Saraf)', 'Sosiologi', 'Statistika'],
+                skills: ['Empati & Mendengar Aktif', 'Analisis Perilaku', 'Konseling & Terapi', 'Riset & Diagnostik'],
+                activities: ['PMR (Dukungan Psikologis)', 'Relawan Sosial/Panti', 'Klub Debat (Memahami Sudut Pandang)', 'OSIS (Mediasi)'],
+                pathClass: 'health-path'
+            },
+            'Dokter Hewan': {
+                title: 'Dokter Hewan',
+                studies: ['Kedokteran Hewan'],
+                subjects: ['Biologi Lanjut', 'Kimia', 'Fisika Dasar'],
+                skills: ['Penanganan Hewan', 'Diagnosa Medis', 'Ketelitian', 'Empati (pada hewan & pemilik)'],
+                activities: ['Klub Pecinta Hewan', 'PMR', 'Klub Biologi (KIR)', 'Relawan di Shelter Hewan'],
+                pathClass: 'health-path'
+            },
+
+            // === 3. SAINS MURNI (Soft Sky Blue) ===
+            'Fisikawan': { 
+                title: 'Fisikawan (Peneliti)', 
+                studies: ['Fisika Murni', 'Teknik Fisika', 'Astronomi'], 
+                subjects: ['Fisika Lanjut', 'Matematika Lanjut (Kalkulus)', 'Kimia Dasar', 'TIK (Pemrograman)'], 
+                skills: ['Analisis Teoretis', 'Riset Laboratorium', 'Problem Solving Kompleks', 'Pemodelan Matematika'], 
+                activities: ['Olimpiade Fisika', 'Klub Sains/KIR', 'Klub Robotik', 'Klub Astronomi'],
+                pathClass: 'sains-path' 
+            },
+            'Ahli Biologi': { 
+                title: 'Ahli Biologi (Peneliti)', 
+                studies: ['Biologi Murni', 'Bioteknologi', 'Mikrobiologi', 'Ekologi'], 
+                subjects: ['Biologi Lanjut', 'Kimia Lanjut', 'Statistika', 'Geografi'], 
+                skills: ['Riset Lapangan/Laboratorium', 'Analisis Data Biologis', 'Ketelitian Mikroskopis', 'Konservasi'], 
+                activities: ['Olimpiade Biologi', 'Klub Sains/KIR', 'Pecinta Alam (Mapala)', 'Asisten Laboratorium'],
+                pathClass: 'sains-path' 
+            },
+            'Kimiawan': { 
+                title: 'Kimiawan (Peneliti)', 
+                studies: ['Kimia Murni', 'Teknik Kimia', 'Farmasi'], 
+                subjects: ['Kimia Lanjut', 'Matematika Lanjut', 'Fisika Dasar', 'Biologi Dasar'], 
+                skills: ['Riset Laboratorium', 'Analisis Senyawa', 'Sintesis Material', 'Keselamatan (K3)'], 
+                activities: ['Olimpiade Kimia', 'Klub Sains/KIR', 'Asisten Laboratorium', 'PMR (Bahan Kimia)'],
+                pathClass: 'sains-path' 
+            },
+
+            // === 4. TEKNOLOGI (Soft Peach) ===
+            'Programmer': { 
+                title: 'Programmer / Software Engineer', 
+                studies: ['Informatika/Teknik Informatika', 'Ilmu Komputer', 'Rekayasa Perangkat Lunak'], 
+                subjects: ['Matematika Lanjut (Kalkulus)', 'TIK (Algoritma & Pemrograman)', 'Fisika'], 
+                skills: ['Logika Pemrograman', 'Problem Solving', 'Abstraksi Sistem', 'Kolaborasi Tim'], 
+                activities: ['Klub Robotik', 'Klub Koding/TIK', 'Olimpiade Komputer', 'Proyek Open Source'],
+                pathClass: 'teknologi-path' 
+            },
+            'Data Analyst': { 
+                title: 'Data Analyst / Data Scientist', 
+                studies: ['Statistika', 'Matematika', 'Informatika'], 
+                subjects: ['Statistika Lanjut', 'Matematika Lanjut', 'TIK (Informatika)', 'Ekonomi (Ekonometrika)'], 
+                skills: ['Analisis Data', 'Logika Probabilitas', 'Visualisasi Data', 'Machine Learning'], 
+                activities: ['Klub Robotik/Statistika', 'Olimpiade Matematika/Sains', 'Klub Koding', 'KIR'],
+                pathClass: 'teknologi-path' 
+            },
+            'Web Developer': { 
+                title: 'Web Developer', 
+                studies: ['Informatika/Teknik Informatika', 'Ilmu Komputer', 'Sistem Informasi'], 
+                subjects: ['TIK (Algoritma & Pemrograman)', 'Matematika Lanjut', 'Seni Rupa (Desain Web)'], 
+                skills: ['Logika Pemrograman (Frontend/Backend)', 'Problem Solving', 'Manajemen Database'], 
+                activities: ['Klub Koding/TIK', 'Klub Robotik', 'Mengelola Website Sekolah', 'Olimpiade Komputer'],
+                pathClass: 'teknologi-path' 
+            },
+            'Cybersecurity Specialist': {
+                title: 'Cybersecurity Specialist',
+                studies: ['Informatika (Keamanan Siber)', 'Teknik Elektro (Jaringan)'],
+                subjects: ['TIK (Jaringan & Algoritma)', 'Matematika Lanjut', 'Fisika (Listrik)'],
+                skills: ['Analisis Risiko', 'Berpikir Kritis', 'Ketelitian Ekstrem', 'Etika'],
+                activities: ['Klub Koding', 'Lomba CTF (Capture The Flag)', 'Klub Jaringan', 'Olimpiade Komputer'],
+                pathClass: 'teknologi-path'
+            },
+            'Game Developer': {
+                title: 'Game Developer',
+                studies: ['Informatika/Teknik Informatika', 'Desain Komunikasi Visual (DKV)'],
+                subjects: ['TIK (Pemrograman)', 'Matematika Lanjut', 'Seni Rupa', 'Fisika (Simulasi)'],
+                skills: ['Logika Pemrograman', 'Kreativitas', 'Storytelling', 'Visualisasi 3D/2D'],
+                activities: ['Klub Koding/Robotik', 'Klub Desain Grafis/Seni', 'Lomba Game Jam', 'Klub Menulis (Naratif)'],
+                pathClass: 'teknologi-path'
+            },
+            'UI/UX Designer': {
+                title: 'UI/UX Designer',
+                studies: ['Desain Komunikasi Visual (DKV)', 'Sistem Informasi', 'Informatika'],
+                subjects: ['Seni Rupa', 'TIK (Desain Digital)', 'Psikologi', 'Sosiologi'],
+                skills: ['Desain Visual', 'Empati Pengguna', 'Wireframing & Prototyping', 'Riset Pengguna'],
+                activities: ['Klub Desain Grafis', 'Jurnalistik (Layout)', 'Klub Koding (Frontend)', 'Relawan (Desain Materi)'],
+                pathClass: 'teknologi-path'
+            },
+
+
+            // === 5. BISNIS (Soft Beige) ===
+            'Akuntan': { 
+                title: 'Akuntan', 
+                studies: ['Akuntansi'], 
+                subjects: ['Ekonomi Akuntansi', 'Matematika Dasar', 'TIK (Spreadsheet)', 'Bahasa Inggris'], 
+                skills: ['Ketelitian Angka', 'Manajemen Keuangan', 'Analisis Audit', 'Etika Profesional'], 
+                activities: ['Bendahara (OSIS/Kelas)', 'Klub Ekonomi/Akuntansi', 'Koperasi Siswa', 'Olimpiade Ekonomi'],
+                pathClass: 'bisnis-path' 
+            },
+            'Manajer Pemasaran': {
+                title: 'Manajer Pemasaran',
+                studies: ['Manajemen/Manajemen Bisnis', 'Ilmu Komunikasi'],
+                subjects: ['Ekonomi', 'Sosiologi', 'TIK (Media Digital)', 'Bahasa Inggris'],
+                skills: ['Kepemimpinan', 'Negosiasi', 'Public Speaking', 'Kreativitas'],
+                activities: ['OSIS (Seksi Pemasaran/Event)', 'Klub Debat', 'Mengelola Media Sosial Sekolah', 'Wirausaha Kecil'],
+                pathClass: 'bisnis-path'
+            },
+            'Pengusaha': {
+                title: 'Pengusaha (Entrepreneur)',
+                studies: ['Manajemen/Manajemen Bisnis', 'Bisnis Digital', 'Teknik Industri (Efisiensi)'],
+                subjects: ['Ekonomi Kewirausahaan', 'TIK (Digital Marketing)', 'Sosiologi', 'Bahasa Inggris'],
+                skills: ['Kewirausahaan', 'Pengambilan Risiko', 'Inovasi', 'Jaringan (Networking)'],
+                activities: ['Wirausaha Kecil (Jualan)', 'OSIS/BEM', 'Klub Debat (Persuasi)', 'Lomba Bisnis Plan'],
+                pathClass: 'bisnis-path'
+            },
+            'Konsultan Hukum Bisnis': {
+                title: 'Konsultan Hukum Bisnis',
+                studies: ['Hukum (Spesialisasi Bisnis)', 'Manajemen'],
+                subjects: ['Hukum', 'Ekonomi', 'Sosiologi', 'Bahasa Inggris/Mandarin'],
+                skills: ['Analisis Kontrak', 'Negosiasi', 'Logika Berpikir', 'Penulisan Hukum'],
+                activities: ['Klub Debat', 'OSIS (Seksi Hukum/Advokasi)', 'Klub Bahasa Asing', 'Jurnalistik'],
+                pathClass: 'bisnis-path'
+            },
+            'Analis Finansial': {
+                title: 'Analis Finansial',
+                studies: ['Manajemen Keuangan', 'Akuntansi', 'Matematika/Statistika'],
+                subjects: ['Matematika Lanjut', 'Ekonomi', 'TIK (Pemodelan)', 'Akuntansi'],
+                skills: ['Analisis Statistik', 'Pemodelan Keuangan', 'Ketelitian Angka', 'Pengambilan Keputusan Cepat'],
+                activities: ['Klub Matematika/Statistika', 'Olimpiade Ekonomi/Matematika', 'Investasi (Simulasi)', 'Bendahara Organisasi'],
+                pathClass: 'bisnis-path'
+            },
+            'Analis Riset Pasar': {
+                title: 'Analis Riset Pasar',
+                studies: ['Manajemen Pemasaran', 'Statistika', 'Ilmu Komunikasi'],
+                subjects: ['Sosiologi', 'Ekonomi (Pemasaran)', 'Statistika', 'TIK (Data Gathering)'],
+                skills: ['Riset Kualitatif/Kuantitatif', 'Analisis Data', 'Komunikasi Interpersonal', 'Presentasi'],
+                activities: ['OSIS (Divisi Riset)', 'Klub Debat', 'Jurnalistik', 'Klub Statistik'],
+                pathClass: 'bisnis-path'
+            },
+
+            // === 6. TEKNIK (Soft Slate) ===
+            'Insinyur Sipil': {
+                title: 'Insinyur Sipil',
+                studies: ['Teknik Sipil'],
+                subjects: ['Fisika Lanjut (Mekanika)', 'Matematika Lanjut (Kalkulus)', 'Kimia Dasar', 'Geografi'],
+                skills: ['Perencanaan Struktural', 'Manajemen Proyek', 'Ketelitian', 'Visualisasi (CAD)'],
+                activities: ['Klub Fisika/Matematika', 'KIR', 'Pramuka (Perkemahan/Bangunan)', 'Klub Robotik'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Mesin': {
+                title: 'Insinyur Mesin',
+                studies: ['Teknik Mesin'],
+                subjects: ['Fisika Lanjut (Termodinamika/Mekanika)', 'Matematika Lanjut', 'TIK (Pemodelan 3D)'],
+                skills: ['Mekanika & Desain', 'Problem Solving (Hardware)', 'Visualisasi 3D', 'Ketelitian'],
+                activities: ['Klub Robotik/Otomotif', 'KIR (Teknik)', 'Olimpiade Fisika', 'Asisten Laboratorium Fisika'],
+                pathClass: 'teknik-path'
+            },
+            'Arsitek': {
+                title: 'Arsitek',
+                studies: ['Arsitektur'],
+                subjects: ['Seni Rupa (Menggambar/Desain)', 'Matematika', 'Fisika Dasar', 'Sejarah/Sosiologi'],
+                skills: ['Menggambar & Sketsa Manual', 'Desain (CAD)', 'Estetika', 'Perencanaan Ruang'],
+                activities: ['Klub Seni Rupa/Menggambar', 'Klub Fotografi', 'KIR (Sipil/Lingkungan)', 'Pramuka (Maket)'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Elektro': {
+                title: 'Insinyur Elektro',
+                studies: ['Teknik Elektro', 'Teknik Fisika', 'Teknik Komputer'],
+                subjects: ['Fisika Lanjut (Listrik/Magnet)', 'Matematika Lanjut', 'TIK (Rangkaian)'],
+                skills: ['Analisis Rangkaian', 'Troubleshooting', 'Pemrograman Mikrokontroler', 'Logika Digital'],
+                activities: ['Klub Robotik/Elektronika', 'Olimpiade Fisika/Komputer', 'Asisten Laboratorium Fisika', 'KIR'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Kimia': {
+                title: 'Insinyur Kimia',
+                studies: ['Teknik Kimia'],
+                subjects: ['Kimia Lanjut', 'Matematika Lanjut', 'Fisika (Termodinamika)', 'TIK (Simulasi Proses)'],
+                skills: ['Analisis Proses', 'Manajemen Pabrik', 'Riset Material', 'Keselamatan Industri (K3)'],
+                activities: ['Klub Kimia/KIR', 'Olimpiade Kimia', 'Asisten Laboratorium Kimia'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Industri': {
+                title: 'Insinyur Industri',
+                studies: ['Teknik Industri'],
+                subjects: ['Ekonomi', 'Matematika Lanjut (Statistika)', 'TIK (Simulasi)', 'Fisika Dasar'],
+                skills: ['Efisiensi Proses', 'Manajemen Rantai Pasok', 'Analisis Statistik', 'Optimasi Sistem'],
+                activities: ['OSIS/BEM (Manajemen Logistik)', 'Klub Statistika', 'Lomba Bisnis Plan', 'KIR'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Perminyakan': {
+                title: 'Insinyur Perminyakan',
+                studies: ['Teknik Perminyakan', 'Teknik Geologi'],
+                subjects: ['Fisika Lanjut', 'Kimia Lanjut', 'Matematika Lanjut', 'Geografi'],
+                skills: ['Analisis Data Seismik', 'Geologi', 'Kuantitatif', 'Ketahanan Fisik (Lapangan)'],
+                activities: ['Klub Fisika/Kimia', 'Pecinta Alam (Geologi)', 'KIR'],
+                pathClass: 'teknik-path'
+            },
+            'Insinyur Lingkungan': {
+                title: 'Insinyur Lingkungan',
+                studies: ['Teknik Lingkungan'],
+                subjects: ['Kimia', 'Biologi', 'Geografi', 'Sosiologi'],
+                skills: ['Analisis Dampak Lingkungan (AMDAL)', 'Sistem Pengolahan Limbah', 'Konservasi', 'Regulasi Lingkungan'],
+                activities: ['Klub Pecinta Alam', 'KIR Lingkungan', 'Relawan Kebersihan/Konservasi', 'Pramuka'],
+                pathClass: 'teknik-path'
+            },
+
+            // === 7. HUKUM (Soft Lilac) ===
+            'Pengacara': {
+                title: 'Pengacara (Advokat)',
+                studies: ['Ilmu Hukum'],
+                subjects: ['Hukum', 'Sosiologi', 'Bahasa Indonesia (Argumentasi)', 'Sejarah'],
+                skills: ['Argumentasi Lisan/Tulisan', 'Analisis Kasus Kritis', 'Negosiasi', 'Public Speaking'],
+                activities: ['Klub Debat', 'OSIS (Advokasi/Hukum)', 'Jurnalistik', 'Klub Bahasa'],
+                pathClass: 'hukum-path'
+            },
+            'Hakim': {
+                title: 'Hakim',
+                studies: ['Ilmu Hukum (Lanjut ke Profesi Hakim)'],
+                subjects: ['Hukum', 'Sejarah', 'Sosiologi', 'Pendidikan Kewarganegaraan'],
+                skills: ['Integritas', 'Analisis Hukum Mendalam', 'Pengambilan Keputusan', 'Netralitas'],
+                activities: ['Klub Debat', 'OSIS (Kepemimpinan)', 'Jurnalistik (Berpikir Kritis)'],
+                pathClass: 'hukum-path'
+            },
+            'Jaksa': {
+                title: 'Jaksa (Penuntut Umum)',
+                studies: ['Ilmu Hukum (Lanjut ke Profesi Jaksa)'],
+                subjects: ['Hukum', 'Sejarah', 'Sosiologi', 'Bahasa Indonesia (Penulisan BAP)'],
+                skills: ['Investigasi', 'Keterampilan Interogasi', 'Public Speaking', 'Etika & Integritas'],
+                activities: ['Klub Debat', 'Jurnalistik Investigasi', 'OSIS (Seksi Keamanan)'],
+                pathClass: 'hukum-path'
+            },
+            'Notaris': {
+                title: 'Notaris (PPAT)',
+                studies: ['Ilmu Hukum (Lanjut ke Magister Kenotariatan)'],
+                subjects: ['Hukum', 'Ekonomi', 'Matematika (Perhitungan Pajak)', 'Bahasa Inggris'],
+                skills: ['Ketelitian Dokumen', 'Administrasi', 'Keterampilan Kontrak', 'Etika Profesional'],
+                activities: ['Bendahara/Sekretaris OSIS', 'Klub Bahasa Asing', 'Klub Ekonomi'],
+                pathClass: 'hukum-path'
+            },
+            'PNS': {
+                title: 'Pegawai Negeri Sipil (PNS)',
+                studies: ['Ilmu Administrasi Negara', 'Hukum', 'Akuntansi', 'Sesuai Bidang Kementerian'],
+                subjects: ['Pendidikan Kewarganegaraan', 'Sejarah', 'Sosiologi', 'Ekonomi'],
+                skills: ['Administrasi Publik', 'Manajemen Organisasi', 'Kepemimpinan', 'Ketelitian'],
+                activities: ['OSIS/BEM', 'Pramuka', 'Lomba Karya Tulis Ilmiah (LKTI)', 'Klub Debat'],
+                pathClass: 'hukum-path'
+            },
+            'Polisi': {
+                title: 'Polisi/Tentara',
+                studies: ['Akademi Kepolisian (Akpol)', 'Akademi Militer (Akmil)'],
+                subjects: ['Pendidikan Jasmani', 'Pendidikan Kewarganegaraan', 'Sejarah', 'Psikologi'],
+                skills: ['Kondisi Fisik Prima', 'Disiplin', 'Kepemimpinan', 'Ketahanan Mental'],
+                activities: ['Paskibraka', 'Pramuka', 'OSIS (Seksi Keamanan)', 'Klub Bela Diri/Olahraga'],
+                pathClass: 'hukum-path'
+            },
+            'Tentara': {
+                title: 'Polisi/Tentara',
+                studies: ['Akademi Militer (Akmil)', 'Akademi Angkatan Laut (AAL)', 'Akademi Angkatan Udara (AAU)'],
+                subjects: ['Pendidikan Jasmani', 'Pendidikan Kewarganegaraan', 'Sejarah', 'Fisika (Navigasi)'],
+                skills: ['Kondisi Fisik Prima', 'Disiplin', 'Kepemimpinan', 'Strategi'],
+                activities: ['Paskibraka', 'Pramuka', 'OSIS (Seksi Keamanan)', 'Klub Bela Diri/Olahraga'],
+                pathClass: 'hukum-path'
+            },
+            'Diplomat': {
+                title: 'Diplomat',
+                studies: ['Hubungan Internasional (HI)', 'Ilmu Politik', 'Ilmu Hukum'],
+                subjects: ['Sejarah', 'Geografi', 'Bahasa Asing Lanjut (minimal 2)', 'Sosiologi'],
+                skills: ['Negosiasi Internasional', 'Public Speaking', 'Pemahaman Geopolitik', 'Etika Profesional'],
+                activities: ['Klub Bahasa Asing', 'Klub Debat (Bahasa Inggris)', 'Model United Nations (MUN)', 'Jurnalistik'],
+                pathClass: 'hukum-path'
+            },
+            'Sosiolog': {
+                title: 'Sosiolog/Peneliti Sosial',
+                studies: ['Sosiologi', 'Antropologi', 'Ilmu Politik'],
+                subjects: ['Sosiologi Lanjut', 'Sejarah', 'Matematika (Statistik Dasar)', 'Psikologi'],
+                skills: ['Riset Sosial', 'Analisis Data Kualitatif', 'Empati Budaya', 'Wawancara Mendalam'],
+                activities: ['KIR Sosial', 'Relawan Sosial/Komunitas', 'Jurnalistik', 'OSIS/BEM'],
+                pathClass: 'hukum-path'
+            },
+
+
+            // === 8. TRANSPORTASI (Soft Aqua) ===
+            'Pilot': {
+                title: 'Pilot',
+                studies: ['Sekolah Penerbangan (Non-S1) / Teknik Dirgantara (S1)'],
+                subjects: ['Fisika Lanjut (Aerodinamika)', 'Matematika Lanjut', 'Geografi (Peta)', 'Bahasa Inggris Lanjut'],
+                skills: ['Kondisi Fisik Prima', 'Pengambilan Keputusan Cepat', 'Konsentrasi Tinggi', 'Komunikasi Radio'],
+                activities: ['Klub Fisika', 'Pramuka (Navigasi)', 'Klub Bahasa Inggris', 'Klub Robotik/Drone'],
+                pathClass: 'transport-path'
+            },
+            'Pramugari': {
+                title: 'Pramugari/Pramugara',
+                studies: ['Sekolah Pramugari (Non-S1) / Pariwisata / Ilmu Komunikasi'],
+                subjects: ['Bahasa Inggris/Asing', 'Sosiologi', 'Pendidikan Jasmani', 'Seni Budaya (Etika)'],
+                skills: ['Pelayanan Pelanggan', 'Public Speaking', 'Empati & Ketenangan', 'Penampilan Menarik'],
+                activities: ['Klub Bahasa Asing', 'OSIS (Hubungan Masyarakat)', 'Klub Tari/Teater (Etika Gerak)', 'PMR (P3K)'],
+                pathClass: 'transport-path'
+            },
+
+            // === 9. PARIWISATA (Soft Lemon) ===
+            'Pemandu Wisata': {
+                title: 'Pemandu Wisata (Tour Guide)',
+                studies: ['Pariwisata', 'Sastra/Sejarah (Kekayaan Lokal)', 'Ilmu Komunikasi'],
+                subjects: ['Sejarah', 'Geografi', 'Bahasa Asing', 'Sosiologi'],
+                skills: ['Storytelling', 'Public Speaking', 'Pengetahuan Lokal', 'Bahasa Asing'],
+                activities: ['Klub Bahasa Asing', 'Pecinta Alam/Wisata', 'Jurnalistik (Reportase)', 'OSIS (Hubungan Masyarakat)'],
+                pathClass: 'tourism-path'
+            },
+            'Chef': {
+                title: 'Chef/Koki',
+                studies: ['Tata Boga (Hospitality)', 'Nutrisi dan Teknologi Kuliner', 'Pariwisata (Hotel)'],
+                subjects: ['Kimia (Komposisi Makanan)', 'Biologi', 'Seni Rupa (Plating)', 'Ekonomi (Food Cost)'],
+                skills: ['Kreativitas Kuliner', 'Manajemen Dapur', 'Teknik Memasak', 'Kecepatan & Presisi'],
+                activities: ['Klub Memasak/Tata Boga', 'Wirausaha Kuliner Kecil', 'Klub Seni Rupa', 'KIR (Kimia Pangan)'],
+                pathClass: 'tourism-path'
+            },
+            'Hotel Manager': {
+                title: 'Hotel Manager',
+                studies: ['Manajemen Perhotelan (Hospitality)', 'Manajemen Bisnis', 'Pariwisata'],
+                subjects: ['Ekonomi Manajemen', 'Sosiologi (Pelayanan)', 'Bahasa Inggris/Asing', 'Akuntansi Dasar'],
+                skills: ['Manajemen Operasional', 'Pelayanan Pelanggan Premium', 'Kepemimpinan', 'Komunikasi Multibahasa'],
+                activities: ['OSIS/BEM (Manajemen Event)', 'Klub Bahasa Asing', 'Wirausaha Kecil', 'Klub Debat'],
+                pathClass: 'tourism-path'
+            },
+            'Event Organizer': {
+                title: 'Event Organizer/Planner',
+                studies: ['Manajemen', 'Ilmu Komunikasi', 'Pariwisata'],
+                subjects: ['Ekonomi Manajemen', 'Seni Budaya', 'Sosiologi', 'TIK (Promosi Digital)'],
+                skills: ['Manajemen Waktu', 'Negosiasi', 'Kreativitas Konsep', 'Kolaborasi Tim'],
+                activities: ['OSIS (Ketua Event)', 'Klub Seni/Teater', 'Wirausaha Kecil', 'Jurnalistik'],
+                pathClass: 'tourism-path'
+            },
+
+            // === 10. KREATIF (Soft Coral) ===
+            'Desainer Grafis': {
+                title: 'Desainer Grafis',
+                studies: ['Desain Komunikasi Visual (DKV)', 'Seni Rupa'],
+                subjects: ['Seni Rupa', 'TIK (Desain Digital)', 'Sejarah Seni', 'Psikologi Warna'],
+                skills: ['Visualisasi', 'Menguasai Tools Digital (Adobe)', 'Tipografi', 'Kreativitas'],
+                activities: ['Klub Desain Grafis', 'Jurnalistik (Layout)', 'Klub Fotografi', 'Lomba Desain Poster'],
+                pathClass: 'creative-path'
+            },
+            'Jurnalis': {
+                title: 'Jurnalis/Reporter',
+                studies: ['Ilmu Komunikasi', 'Sastra', 'Hubungan Internasional (Jurnalisme Politik)'],
+                subjects: ['Bahasa Indonesia Lanjut', 'Sosiologi', 'Sejarah', 'TIK (Media Digital)'],
+                skills: ['Wawancara', 'Menulis Berita (Cepat & Akurat)', 'Verifikasi Fakta', 'Public Speaking'],
+                activities: ['Jurnalistik Sekolah/Majalah Dinding', 'Klub Debat', 'OSIS (Publikasi)', 'Klub Bahasa'],
+                pathClass: 'creative-path'
+            },
+            'Penulis': {
+                title: 'Penulis (Sastrawan/Konten Kreator)',
+                studies: ['Sastra Indonesia/Asing', 'Ilmu Komunikasi', 'Filsafat'],
+                subjects: ['Bahasa Indonesia Lanjut', 'Sastra', 'Sejarah', 'Sosiologi/Psikologi'],
+                skills: ['Menulis Kreatif', 'Riset Mendalam', 'Storytelling', 'Tata Bahasa & Ejaan'],
+                activities: ['Klub Menulis (Fiksi/Non-Fiksi)', 'Jurnalistik', 'Klub Debat', 'Teater'],
+                pathClass: 'creative-path'
+            },
+            'Fotografer': {
+                title: 'Fotografer/Videografer Profesional',
+                studies: ['Seni Rupa (Fotografi)', 'Desain Komunikasi Visual (DKV)', 'Ilmu Komunikasi (Media)'],
+                subjects: ['Seni Rupa', 'Fisika (Cahaya/Optik)', 'TIK (Editing)', 'Sejarah Seni'],
+                skills: ['Komposisi Visual', 'Teknik Pencahayaan', 'Editing Foto/Video', 'Kreativitas'],
+                activities: ['Klub Fotografi/Sinematografi', 'Jurnalistik (Dokumentasi)', 'Klub Seni Rupa', 'Klub TIK'],
+                pathClass: 'creative-path'
+            },
+            'Video Editor': {
+                title: 'Video Editor/Filmmaker',
+                studies: ['Film dan Televisi', 'Desain Komunikasi Visual (DKV)'],
+                subjects: ['Seni Rupa', 'TIK (Editing)', 'Sastra (Naratif)', 'Fisika (Gerak)'],
+                skills: ['Editing Video (Software)', 'Storytelling Visual', 'Manajemen File', 'Irama (Rhythm)'],
+                activities: ['Klub Sinematografi', 'Jurnalistik (Video News)', 'Klub Teater', 'Klub TIK'],
+                pathClass: 'creative-path'
+            },
+            'Public Relations Specialist': {
+                title: 'Public Relations Specialist',
+                studies: ['Ilmu Komunikasi', 'Manajemen', 'Hubungan Internasional'],
+                subjects: ['Sosiologi', 'Bahasa Indonesia/Inggris', 'Ekonomi', 'Pendidikan Kewarganegaraan'],
+                skills: ['Komunikasi Krisis', 'Public Speaking', 'Penulisan Siaran Pers', 'Jaringan (Networking)'],
+                activities: ['OSIS (Hubungan Masyarakat)', 'Klub Debat', 'Jurnalistik', 'Klub Bahasa Asing'],
+                pathClass: 'creative-path'
+            },
+            'Animator': {
+                title: 'Animator',
+                studies: ['Desain Komunikasi Visual (DKV)', 'Film dan Televisi (Animasi)'],
+                subjects: ['Seni Rupa', 'TIK (Software Animasi)', 'Fisika (Gerak)', 'Sastra (Karakter)'],
+                skills: ['Menggambar Digital', 'Visualisasi 2D/3D', 'Logika Gerak', 'Kreativitas Karakter'],
+                activities: ['Klub Seni Rupa', 'Klub Koding/Robotik', 'Klub Film', 'Lomba Komik Digital'],
+                pathClass: 'creative-path'
+            },
+            'Musisi': {
+                title: 'Musisi/Komposer',
+                studies: ['Seni Musik', 'Pendidikan Seni Musik', 'Komposisi Musik'],
+                subjects: ['Seni Budaya (Musik)', 'Matematika (Teori Musik)', 'Bahasa Asing (Lirik)'],
+                skills: ['Teori Musik', 'Keterampilan Instrumen', 'Komposisi', 'Public Performance'],
+                activities: ['Ekstrakurikuler Band/Orkestra', 'Klub Paduan Suara', 'Lomba Musik', 'Pelajaran Privat Musik'],
+                pathClass: 'creative-path'
+            },
+            'Penerjemah': {
+                title: 'Penerjemah/Juru Bahasa',
+                studies: ['Sastra Asing (Inggris, Mandarin, Jepang, dll.)', 'Linguistik'],
+                subjects: ['Bahasa Asing Lanjut', 'Bahasa Indonesia Lanjut', 'Sosiologi', 'Sejarah (Konteks Budaya)'],
+                skills: ['Penguasaan Grammar (Asing & Lokal)', 'Kefasihan Lisan/Tulisan', 'Pemahaman Budaya', 'Ketelitian'],
+                activities: ['Klub Bahasa Asing', 'Klub Debat', 'Jurnalistik', 'Penerjemah Sukarela'],
+                pathClass: 'creative-path'
+            },
+
+            // === 11. PERTANIAN (Soft Moss Green) ===
+            'Peneliti Pertanian': {
+                title: 'Peneliti Pertanian/Agroteknologi',
+                studies: ['Agroteknologi', 'Agribisnis', 'Teknik Pertanian'],
+                subjects: ['Biologi Lanjut', 'Kimia', 'Geografi (Tanah/Iklim)', 'Ekonomi (Bisnis Tani)'],
+                skills: ['Riset Lapangan', 'Analisis Tanah/Hama', 'Bioteknologi Tanaman', 'Manajemen Lahan'],
+                activities: ['KIR Pertanian/Biologi', 'Pramuka (Perkebunan)', 'Pecinta Alam', 'Wirausaha Tani (Kecil)'],
+                pathClass: 'pertanian-path'
+            },
+            'Peneliti Lingkungan': {
+                title: 'Peneliti Lingkungan/Konservasi',
+                studies: ['Teknik Lingkungan', 'Biologi (Ekologi)', 'Geografi Lingkungan'],
+                subjects: ['Biologi', 'Kimia', 'Geografi', 'Sosiologi'],
+                skills: ['Riset Lapangan', 'Analisis Data Lingkungan', 'Konservasi', 'Pengelolaan Sumber Daya'],
+                activities: ['Klub Pecinta Alam (Mapala)', 'KIR Lingkungan', 'Relawan Konservasi', 'Pramuka'],
+                pathClass: 'pertanian-path'
+            },
+            'Ahli Kehutanan': {
+                title: 'Ahli Kehutanan',
+                studies: ['Kehutanan', 'Teknik Pertanian', 'Biologi Konservasi'],
+                subjects: ['Biologi Lanjut', 'Geografi', 'Fisika (Pemetaan)', 'Ekonomi (Manajemen Hutan)'],
+                skills: ['Penguasaan Ekologi Hutan', 'Pemetaan (GIS)', 'Konservasi', 'Ketahanan Fisik'],
+                activities: ['Pecinta Alam', 'Pramuka', 'KIR Biologi/Geografi'],
+                pathClass: 'pertanian-path'
+            },
+        };
+
+        // DOM Elements
+        const modal = document.getElementById('career-modal');
+        const modalPanel = document.getElementById('modal-panel');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContentArea = document.getElementById('modal-content-area');
+        const professionSelect = document.getElementById('profession-path');
+
+        // Utility untuk membuat konten kartu (card)
+        function createCard(title, items, emoji) {
+            let listItems = items.map(item =>
+                // Gunakan class list-item untuk theming
+                `<li class="list-item py-2 px-4 rounded-lg mb-1 border-l-4 shadow-sm">${item}</li>`
+            ).join('');
+
+            return `
+                <div class="bg-white rounded-xl shadow-lg p-5 h-full transition duration-300 transform hover:scale-[1.01] hover:shadow-xl">
+                    <h3 class="card-title text-xl font-bold mb-3 pb-1 border-b-2 border-opacity-50">
+                        ${emoji} ${title}
+                    </h3>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        ${listItems}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Fungsi untuk membuka modal
+        function openModal(data) {
+            // 1. Set Theme Class pada Body dan Panel
+            const body = document.body;
+            // Hapus kelas path sebelumnya (agar warna tidak tumpang tindih)
+            body.className = body.className.split(' ').filter(c => !c.endsWith('-path')).join(' ');
+            body.classList.add(data.pathClass);
+            
+            // Reset dan tambahkan kelas path ke modal panel
+            modalPanel.className = 'bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-full md:h-auto md:max-h-[90vh] overflow-hidden transform transition-all duration-300 ease-in-out ' + data.pathClass;
+
+            // 2. Populate Header
+            const pathName = data.pathClass.replace('-path', '').toUpperCase();
+            modalTitle.textContent = `${data.title} - Rumpun: ${pathName}`;
+
+            // 3. Populate Content Area
+            const contentHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    ${createCard('Program Studi yang Sesuai (S1/D4)', data.studies, '📚')}
+                    ${createCard('Mata Pelajaran SMA Pendukung (SNBP/UTBK)', data.subjects, '🧠')}
+                    ${createCard('Keterampilan Utama yang Harus Dikuasai', data.skills, '💪')}
+                    ${createCard('Kegiatan Ekstrakurikuler yang Mendukung', data.activities, '🚀')}
+                </div>
+                <div class="mt-6 p-4 text-center bg-white rounded-xl shadow-lg border-t-2 border-opacity-50 border-pink-300">
+                    <p class="text-sm font-semibold text-gray-600">
+                        Catatan: Informasi ini disarikan dari pedoman Kemendikbudristek dan analisis jalur karir. Jalur Anda bisa lebih fleksibel!
+                    </p>
+                </div>
+            `;
+            modalContentArea.innerHTML = contentHTML;
+
+            // 4. Show Modal with Transitions
+            modal.classList.remove('hidden');
+            // Force reflow to ensure transitions run
+            void modalBackdrop.offsetWidth;
+            modalBackdrop.classList.remove('opacity-0');
+            modalPanel.classList.remove('scale-95', 'opacity-0');
+            modalPanel.classList.add('scale-100', 'opacity-100');
+        }
+
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            // 1. Start Close Transitions
+            modalBackdrop.classList.add('opacity-0');
+            modalPanel.classList.remove('scale-100', 'opacity-100');
+            modalPanel.classList.add('scale-95', 'opacity-0');
+
+            // 2. Hide Modal after transition
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // Clean up theme class from body after closing
+                document.body.className = document.body.className.split(' ').filter(c => !c.endsWith('-path')).join(' ');
+                // Reset select option to 'Pilih Profesi Impian'
+                professionSelect.value = 'none';
+            }, 300); // Match CSS transition duration
+        }
+
+        // Main logic triggered by dropdown
+        function displayMap() {
+            const selectedProfession = professionSelect.value;
+            if (selectedProfession === 'none') {
+                closeModal();
+                return;
+            }
+            const data = professionDatabase[selectedProfession];
+            if (data) {
+                openModal(data);
+            }
+        }
+
+        // Event Listeners for closing the modal
+        window.onload = function() {
+            // Attach main function to window object
+            window.displayMap = displayMap;
+            
+            // Event listeners
+            document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', closeModal);
+            
+            // Close on ESC key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
